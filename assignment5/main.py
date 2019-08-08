@@ -1,11 +1,16 @@
 from flask import Flask,  request, escape, render_template
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return render_template('Register.html')
+
+@app.route('/',methods=["post"]
+           )
+def register():
+        return 'xyz';
 
 
-if _name_ == '_main_':
-    app.run()
+if __name__== '__main__':
+    app.run(debug=True)
