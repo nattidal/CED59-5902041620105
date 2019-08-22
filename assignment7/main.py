@@ -1,9 +1,22 @@
 from flask import Flask,render_template
-app = Flask(_name_)
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms.validators import DataRequired
+app = Flask(__name__)
+
+# class MyForm(FlaskForm):
+#     name = StringField('name', validators=[DataRequired()])
 
 @app.route("/")
-def member():
+def redirect():
     return render_template('login.html')
 
-if _name_ == "_main_":
-    app.run(debug=True)
+@app.route('/submit', methods=('GET', 'POST'))
+def submit():
+    form = MyForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('login.html', form=form)
+
+if __name__ == "_main_":
+    app.run()
