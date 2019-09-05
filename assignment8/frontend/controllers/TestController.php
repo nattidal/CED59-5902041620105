@@ -8,7 +8,7 @@ class TestController extends \yii\web\Controller
 {
     public function actionIndex() {
         echo 'data Test';
-        return $this->render('index', [ 'xdata' => $data]);
+        return $this->render('index', [ 'xdata' => $xdata]);
     }
 
     public function actionTest() {
